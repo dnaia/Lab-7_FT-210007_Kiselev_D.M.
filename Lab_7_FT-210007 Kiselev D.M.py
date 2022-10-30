@@ -1,3 +1,9 @@
+import logging
+
+logging.basicConfig(level=logging.INFO, filename='logs_Lab_7_FT_210007_Kiselev_D_M.txt', filemode='w',
+                    format="%(asctime)s %(levelname)s %(message)s")
+
+
 k1 = 0  # Счетчик для проверки ввода цифр
 l1 = 0  # Счетчик для проверки ввода цифр
 m1 = 0  # Счетчик для проверки ввода цифр
@@ -26,22 +32,26 @@ def elephant(ke, le, me, ne):
     while ke <= 8 and le >= 1:  # Влево вверх диаг  # Влево вверх и Вправо вниз диаг | Формируется список опасноснтей для фигуры оппонента
         ke = ke + 1
         le = le - 1
+        logging.info("Все успешно")
         if ke == 9 or le == 0:
             break
         spisokdanger_upleftd_vert.append(ke)  # Список вертикальных опасностей
         spisokdanger_upleftd_goriz.append(le)  # Список горизонталей опасностей
         elephant_spisok.append(ke)
         elephant_spisok.append(le)
+        logging.info("Все успешно")
 
     while kehelp >= 1 and lehelp <= 8:  # Вправо вниз диаг
         kehelp = kehelp - 1
         lehelp = lehelp + 1
+        logging.info("Все успешно")
         if kehelp == 0 or lehelp == 9:
             break
         spisokdanger_upleftd_vert.append(kehelp)  # Список вертикальных опасностей
         spisokdanger_upleftd_goriz.append(lehelp)  # Список горизонталей опасностей
         elephant_spisok.append(kehelp)
         elephant_spisok.append(lehelp)
+        logging.info("Все успешно")
 
     spisokdanger_uprightd_vert = []
     spisokdanger_uprightd_goriz = []
@@ -49,22 +59,26 @@ def elephant(ke, le, me, ne):
     while kehelp2 <= 8 and lehelp2 <= 8:  # Вправо вверх диаг
         kehelp2 = kehelp2 + 1
         lehelp2 = lehelp2 + 1
+        logging.info("Все успешно")
         if kehelp2 == 9 or lehelp2 == 9:
             break
         spisokdanger_uprightd_vert.append(kehelp2)  # Список вертикальных угроз
         spisokdanger_uprightd_goriz.append(lehelp2)  # Список горизонтальных угроз
         elephant_spisok.append(kehelp2)
         elephant_spisok.append(lehelp2)
+        logging.info("Все успешно")
 
     while kehelp3 >= 1 and lehelp3 >= 1:  # Влево вниз диаг
         kehelp3 = kehelp3 - 1
         lehelp3 = lehelp3 - 1
+        logging.info("Все успешно")
         if kehelp3 == 0 or lehelp3 == 0:
             break
         spisokdanger_uprightd_vert.append(kehelp3)  # Список вертикальных угроз
         spisokdanger_uprightd_goriz.append(lehelp3)  # Список горизонтальных угроз
         elephant_spisok.append(kehelp3)
         elephant_spisok.append(lehelp3)
+        logging.info("Все успешно")
 
     # print(spisokdanger_upleftd_vert)
     # print(spisokdanger_upleftd_goriz)
@@ -77,15 +91,19 @@ def elephant(ke, le, me, ne):
     for i in spisokdanger_upleftd_vert:  # Проверка, возможно ли срубить за один ход!
         if me == i:
             index = spisokdanger_upleftd_vert.index(i)
+            logging.info("Все успешно")
             if spisokdanger_upleftd_goriz[index] == ne:
                 s1 += 1
+                logging.info("Все успешно")
                 # print('s1', s1)
 
     for i in spisokdanger_uprightd_vert:  # Проверка, возможно ли срубить за один ход!
         if i == m:
             index = spisokdanger_uprightd_vert.index(i)
+            logging.info("Все успешно")
             if spisokdanger_uprightd_goriz[index] == n:
                 s2 += 1
+                logging.info("Все успешно")
                 # print('s2', s2)
 
     if (s1 != 0) or (s2 != 0):
@@ -107,22 +125,26 @@ def elephant(ke, le, me, ne):
             while me <= 8 and ne >= 1:  # Влево вверх диаг  # Влево вверх и Вправо вниз диаг | Формируется список опасноснтей для фигуры оппонента
                 me = me + 1
                 ne = ne - 1
+                logging.info("Все успешно")
                 if me == 9 or ne == 0:
                     break
                 spisokw_upleftd_vert.append(me)  # Список вертикальных опасностей
                 spisokw_upleftd_goriz.append(ne)  # Список горизонталей опасностей
                 opponent_spisok.append(me)
                 opponent_spisok.append(ne)
+                logging.info("Все успешно")
 
             while mehelp >= 1 and nehelp <= 8:  # Вправо вниз диаг
                 mehelp = mehelp - 1
                 nehelp = nehelp + 1
+                logging.info("Все успешно")
                 if mehelp == 0 or nehelp == 9:
                     break
                 spisokw_upleftd_vert.append(mehelp)  # Список вертикальных опасностей
                 spisokw_upleftd_goriz.append(nehelp)  # Список горизонталей опасностей
                 opponent_spisok.append(mehelp)
                 opponent_spisok.append(nehelp)
+                logging.info("Все успешно")
 
             spisokw_uprightd_vert = []
             spisokw_uprightd_goriz = []
@@ -130,22 +152,27 @@ def elephant(ke, le, me, ne):
             while mehelp2 <= 8 and nehelp2 <= 8:  # Вправо вверх диаг
                 mehelp2 = mehelp2 + 1
                 nehelp2 = nehelp2 + 1
+                logging.info("Все успешно)")
                 if mehelp2 == 9 or nehelp2 == 9:
                     break
                 spisokw_uprightd_vert.append(mehelp2)  # Список вертикальных угроз
                 spisokw_uprightd_goriz.append(nehelp2)  # Список горизонтальных угроз
                 opponent_spisok.append(mehelp2)
                 opponent_spisok.append(nehelp2)
+                logging.info("Все успешно")
 
             while mehelp3 >= 1 and nehelp3 >= 1:  # Влево вниз диаг
                 mehelp3 = mehelp3 - 1
                 nehelp3 = nehelp3 - 1
+                logging.info("Все успешно")
                 if mehelp3 == 0 or nehelp3 == 0:
                     break
                 spisokw_uprightd_vert.append(mehelp3)  # Список вертикальных угроз
                 spisokw_uprightd_goriz.append(nehelp3)  # Список горизонтальных угроз
                 opponent_spisok.append(mehelp3)
                 opponent_spisok.append(nehelp3)
+                logging.info("Все успешно")
+
 
             # print(spisokw_upleftd_vert)
             # print(spisokw_upleftd_goriz)
@@ -168,21 +195,25 @@ def elephant(ke, le, me, ne):
                     i = j - 1
                     elop = opponent_spisok[i]
                     elop2 = opponent_spisok[j]
+                    logging.info("Все успешно")
                     for j1 in range(1, dlinael, 2):
                         i1 = j1 - 1
                         elel = elephant_spisok[i1]
                         elel2 = elephant_spisok[j1]
+                        logging.info("Все успешно")
                         if j1 == dlinael:
                             i += 1
                             j += 1
+                            logging.info("Все успешно")
                         # print(elop, elel, '\n', elop2, elel2)
                         if elop == elel and elop2 == elel2:
                             o1 = 1
+                            logging.info("Все успешно)")
                             print(
                                 'Для того чтобы срубить фигуру соперника вторым ходом, нужно первым ходом сходить по вертикали на',
                                 elop, 'и по горизонатале на', elop2,
                                 '\nТаким образом, вторым ходом вы окажетесь по вертикале на', mestock,
-                                'и по горизонатале на', nestock,'\n')
+                                'и по горизонатале на', nestock, '\n')
 
 
 def turris(ke, le, me, ne):  # Ход ладьи(туры) | вводим координаты и ход туры
@@ -196,62 +227,76 @@ def turris(ke, le, me, ne):  # Ход ладьи(туры) | вводим коо
 
     while ke <= 8:  # Ходы по вертикале вверх
         ke = ke + 1
+        logging.info("Все успешно")
         if ke == 9:
             break
         spisokdanger_updown_vertical.append(ke)
         spisokdanger_updown_gorizont.append(le)
         turrisspisok.append(ke)
         turrisspisok.append(le)
+        logging.info("Все успешно")
 
     while kehelp >= 1:  # Ходы по вертикале вниз
         kehelp = kehelp - 1
+        logging.info("Все успешно")
         if kehelp == 0:
             break
         spisokdanger_updown_vertical.append(kehelp)
         spisokdanger_updown_gorizont.append(le)
         turrisspisok.append(kehelp)
         turrisspisok.append(le)
+        logging.info("Все успешно")
 
     spisokdanger_leftright_vertical = []
     spisokdanger_leftright_gorizont = []
     while le <= 8:  # Ходы по горизонтале вправо
         le = le + 1
+        logging.info("Все успешно")
         if le == 9:
             break
         spisokdanger_leftright_vertical.append(kestock)
         spisokdanger_leftright_gorizont.append(le)
         turrisspisok.append(kestock)
         turrisspisok.append(le)
+        logging.info("Все успешно")
 
     while lehelp >= 1:  # Ходы по горизонтале влево
         lehelp = lehelp - 1
+        logging.info("Все успешно")
         if lehelp == 0:
             break
         spisokdanger_leftright_vertical.append(kestock)
         spisokdanger_leftright_gorizont.append(lehelp)
         turrisspisok.append(kestock)
         turrisspisok.append(lehelp)
+        logging.info("Все успешно")
+
 
     # print(spisokdanger_updown_vertical)
     # print(spisokdanger_updown_gorizont)
-    #print(spisokdanger_leftright_vertical)
-    #print(spisokdanger_leftright_gorizont)
+    # print(spisokdanger_leftright_vertical)
+    # print(spisokdanger_leftright_gorizont)
     s1 = 0  # Вспомогательные счетчики
     s2 = 0  # Вспомогательные счетчики
     for i in spisokdanger_updown_vertical:  # Проверка, возможно ли срубить за один ход!
         if i == m:
             index = spisokdanger_updown_vertical.index(i)
+            logging.info("Все успешно")
             if spisokdanger_updown_gorizont[index] == n:
                 s1 += 1
+                logging.info("Все успешно")
 
     for i in spisokdanger_leftright_gorizont:  # Проверка, возможно ли срубить за один ход!
         if i == n:
             index = spisokdanger_leftright_gorizont.index(i)
+            logging.info("Все успешно")
             if spisokdanger_leftright_vertical[index] == m:
                 s2 += 1
+                logging.info("Все успешно")
 
-    #print('s1', s1)
-    #print('s2', s2)
+
+    # print('s1', s1)
+    # print('s2', s2)
     if (s1 != 0) or (s2 != 0):
         print('Противник под угрозой!\nЕго можно срубить за один ход.')
     else:
@@ -267,41 +312,49 @@ def turris(ke, le, me, ne):  # Ход ладьи(туры) | вводим коо
         # Проработка первого хода, для пересечения с соперником
         while me <= 8:  # Ходы по вертикале вверх
             me = me + 1
+            logging.info("Все успешно")
             if me == 9:
                 break
             spisokop_updown_vert.append(me)
             spisokop_updown_gorizont.append(ne)
             opponent_spisok.append(me)
             opponent_spisok.append(ne)
+            logging.info("Все успешно")
 
         while mehelp >= 1:
             mehelp = mehelp - 1
+            logging.info("Все успешно")
             if mehelp == 0:
                 break
             spisokop_updown_vert.append(mehelp)
             spisokop_updown_gorizont.append(ne)
             opponent_spisok.append(mehelp)
             opponent_spisok.append(ne)
+            logging.info("Все успешно")
 
         spisokop_leftright_vert = []
         spisokop_leftright_gorizont = []
         while ne <= 8:  # Ходы по горизонтале
             ne = ne + 1
+            logging.info("Все успешно")
             if ne == 9:
                 break
             spisokop_leftright_vert.append(mestock)
             spisokop_leftright_gorizont.append(ne)
             opponent_spisok.append(mestock)
             opponent_spisok.append(ne)
+            logging.info("Все успешно")
 
         while nehelp >= 1:
             nehelp = nehelp - 1
+            logging.info("Все успешно")
             if nehelp == 0:
                 break
             spisokop_leftright_vert.append(mestock)
             spisokop_leftright_gorizont.append(nehelp)
             opponent_spisok.append(mestock)
             opponent_spisok.append(nehelp)
+            logging.info("Все успешно")
 
         o1 = 0  # Вспомогательные счетчики
         dlinatur = len(turrisspisok)
@@ -312,25 +365,31 @@ def turris(ke, le, me, ne):  # Ход ладьи(туры) | вводим коо
         if o1 != 1:  # Поиск пересекающихся диагоналей для победы вторым ходом
             for j in range(1, dlinaop, 2):
                 i = j - 1
+                logging.info("Все успешно")
                 elop = opponent_spisok[i]
                 elop2 = opponent_spisok[j]
                 for j1 in range(1, dlinatur, 2):
                     i1 = j1 - 1
+                    logging.info("Все успешно")
                     eltur = turrisspisok[i1]
                     eltur2 = turrisspisok[j1]
                     if j1 == dlinatur:
                         i += 1
                         j += 1
+                        logging.info("Все успешно")
                     # print(elop, eltur, '\n', elop2, eltur2)
                     if elop == eltur and elop2 == eltur2:
                         o1 = 1
+                        logging.info("Все успешно")
                         print(
                             'Для того чтобы срубить фигуру соперника вторым ходом, нужно первым ходом сходить по вертикали на',
                             elop, 'и по горизонатале на', elop2,
                             '\nТаким образом, вторым ходом вы окажетесь по вертикале на', mestock,
-                            'и по горизонатале на', nestock,'\n')
+                            'и по горизонатале на', nestock, '\n')
 
-def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладья + слон, поэтому скопирую две предыдущих функции и немного отредачу
+
+def qeen(ke, le, me,
+         ne):  # Ферзь(королева) ходит как ладья + слон, поэтому скопирую две предыдущих функции и немного отредачу
     spisokdanger_upleftd_vert = []
     spisokdanger_upleftd_goriz = []
     elephant_spisok = []
@@ -380,22 +439,26 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
     while ke <= 8 and le >= 1:  # Влево вверх диаг  # Влево вверх и Вправо вниз диаг | Формируется список опасноснтей для фигуры оппонента
         ke = ke + 1
         le = le - 1
+        logging.info("Все успешно")
         if ke == 9 or le == 0:
             break
         spisokdanger_upleftd_vert.append(ke)  # Список вертикальных опасностей
         spisokdanger_upleftd_goriz.append(le)  # Список горизонталей опасностей
         qeenspisok.append(ke)
         qeenspisok.append(le)
+        logging.info("Все успешно")
 
     while kehelp >= 1 and lehelp <= 8:  # Вправо вниз диаг
         kehelp = kehelp - 1
         lehelp = lehelp + 1
+        logging.info("Все успешно")
         if kehelp == 0 or lehelp == 9:
             break
         spisokdanger_upleftd_vert.append(kehelp)  # Список вертикальных опасностей
         spisokdanger_upleftd_goriz.append(lehelp)  # Список горизонталей опасностей
         qeenspisok.append(kehelp)
         qeenspisok.append(lehelp)
+        logging.info("Все успешно")
 
     spisokdanger_uprightd_vert = []
     spisokdanger_uprightd_goriz = []
@@ -403,65 +466,79 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
     while kehelp2 <= 8 and lehelp2 <= 8:  # Вправо вверх диаг
         kehelp2 = kehelp2 + 1
         lehelp2 = lehelp2 + 1
+        logging.info("Все успешно")
         if kehelp2 == 9 or lehelp2 == 9:
             break
         spisokdanger_uprightd_vert.append(kehelp2)  # Список вертикальных угроз
         spisokdanger_uprightd_goriz.append(lehelp2)  # Список горизонтальных угроз
         qeenspisok.append(kehelp2)
         qeenspisok.append(lehelp2)
+        logging.info("Все успешно")
 
     while kehelp3 >= 1 and lehelp3 >= 1:  # Влево вниз диаг
         kehelp3 = kehelp3 - 1
         lehelp3 = lehelp3 - 1
+        logging.info("Все успешно")
         if kehelp3 == 0 or lehelp3 == 0:
             break
         spisokdanger_uprightd_vert.append(kehelp3)  # Список вертикальных угроз
         spisokdanger_uprightd_goriz.append(lehelp3)  # Список горизонтальных угроз
         qeenspisok.append(kehelp3)
         qeenspisok.append(lehelp3)
+        logging.info("Все успешно")
     # Ходы ладьи
     while kehelpl2 <= 8:  # Ходы по вертикале вверх
         kehelpl2 = kehelpl2 + 1
+        logging.info("Все успешно")
         if kehelpl2 == 9:
             break
         spisokdanger_updown_vertical.append(kehelpl2)
         spisokdanger_updown_gorizont.append(lestock)
         qeenspisok.append(kehelpl2)
         qeenspisok.append(lestock)
+        logging.info("Все успешно")
 
     while kehelpl >= 1:
         kehelpl = kehelpl - 1
+        logging.info("Все успешно")
         if kehelpl == 0:
             break
         spisokdanger_updown_vertical.append(kehelpl)
         spisokdanger_updown_gorizont.append(lestock)
         qeenspisok.append(kehelpl)
         qeenspisok.append(lestock)
+        logging.info("Все успешно")
 
     spisokdanger_leftright_vertical = []
     spisokdanger_leftright_gorizont = []
     while lehelpl <= 8:  # Ходы по горизонтале
         lehelpl = lehelpl + 1
+        logging.info("Все успешно")
         if lehelpl == 9:
             break
         spisokdanger_leftright_vertical.append(kestock)
         spisokdanger_leftright_gorizont.append(lehelpl)
         qeenspisok.append(kestock)
         qeenspisok.append(lehelpl)
+        logging.info("Все успешно")
 
     while lehelpl2 >= 1:
         lehelpl2 = lehelpl2 - 1
+        logging.info("Все успешно")
         if lehelpl2 == 0:
             break
         spisokdanger_leftright_vertical.append(kestock)
         spisokdanger_leftright_gorizont.append(lehelpl2)
         qeenspisok.append(kestock)
         qeenspisok.append(lehelpl2)
+        logging.info("Все успешно")
     # print(spisokdanger_upleftd_vert)
     # print(spisokdanger_upleftd_goriz)
     # print(spisokdanger_uprightd_vert)
     # print(spisokdanger_uprightd_goriz)
     # print(elephant_spisok)  # Список всех возможных ходов слона
+
+
 
     s1 = 0  # Вспомогательные счетчики
     s2 = 0  # Вспомогательные счетчики
@@ -469,38 +546,45 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
     s4 = 0  # Вспомогательные счетчики
     for i in spisokdanger_upleftd_vert:  # Проверка, возможно ли срубить за один ход!
         if m == i:
+            logging.info("Все успешно")
             index = spisokdanger_upleftd_vert.index(i)
             if spisokdanger_upleftd_goriz[index] == n:
                 s1 += 1
+                logging.info("Все успешно")
                 # print('s1', s1)
 
     for i in spisokdanger_uprightd_vert:  # Проверка, возможно ли срубить за один ход!
         if i == m:
+            logging.info("Все успешно")
             index = spisokdanger_uprightd_vert.index(i)
             if spisokdanger_uprightd_goriz[index] == n:
                 s2 += 1
+                logging.info("Все успешно")
                 # print('s2', s2)
-
 
     while me <= 8 and ne >= 1:  # Влево вверх диаг  # Влево вверх и Вправо вниз диаг | Формируется список опасноснтей для фигуры оппонента
         me = me + 1
         ne = ne - 1
+        logging.info("Все успешно")
         if me == 9 or ne == 0:
             break
         spisokw_upleftd_vert.append(me)  # Список вертикальных опасностей
         spisokw_upleftd_goriz.append(ne)  # Список горизонталей опасностей
         opponent_spisok.append(me)
         opponent_spisok.append(ne)
+        logging.info("Все успешно")
 
     while mehelp >= 1 and nehelp <= 8:  # Вправо вниз диаг
         mehelp = mehelp - 1
         nehelp = nehelp + 1
+        logging.info("Все успешно")
         if mehelp == 0 or nehelp == 9:
             break
         spisokw_upleftd_vert.append(mehelp)  # Список вертикальных опасностей
         spisokw_upleftd_goriz.append(nehelp)  # Список горизонталей опасностей
         opponent_spisok.append(mehelp)
         opponent_spisok.append(nehelp)
+        logging.info("Все успешно")
 
     spisokw_uprightd_vert = []
     spisokw_uprightd_goriz = []
@@ -508,22 +592,26 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
     while mehelp2 <= 8 and nehelp2 <= 8:  # Вправо вверх диаг
         mehelp2 = mehelp2 + 1
         nehelp2 = nehelp2 + 1
+        logging.info("Все успешно")
         if mehelp2 == 9 or nehelp2 == 9:
             break
         spisokw_uprightd_vert.append(mehelp2)  # Список вертикальных угроз
         spisokw_uprightd_goriz.append(nehelp2)  # Список горизонтальных угроз
         opponent_spisok.append(mehelp2)
         opponent_spisok.append(nehelp2)
+        logging.info("Все успешно")
 
     while mehelp3 >= 1 and nehelp3 >= 1:  # Влево вниз диаг
         mehelp3 = mehelp3 - 1
         nehelp3 = nehelp3 - 1
+        logging.info("Все успешно")
         if mehelp3 == 0 or nehelp3 == 0:
             break
         spisokw_uprightd_vert.append(mehelp3)  # Список вертикальных угроз
         spisokw_uprightd_goriz.append(nehelp3)  # Список горизонтальных угроз
         opponent_spisok.append(mehelp3)
         opponent_spisok.append(nehelp3)
+        logging.info("Все успешно")
 
         spisokop_updown_vert = []
         spisokop_updown_gorizont = []
@@ -535,93 +623,113 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
     # Проработка первого хода, для пересечения с соперником
     while mehelpl1 <= 8:  # Ходы по вертикале вверх
         mehelpl1 = mehelpl1 + 1
+        logging.info("Все успешно")
         if mehelpl1 == 9:
             break
         spisokop_updown_vert.append(mehelpl1)
         spisokop_updown_gorizont.append(nehelpl1)
         opponent_spisok.append(mehelpl1)
         opponent_spisok.append(nehelpl1)
+        logging.info("Все успешно")
 
     while mehelpl2 >= 1:
         mehelpl2 = mehelpl2 - 1
+        logging.info("Все успешно")
         if mehelpl2 == 0:
             break
         spisokop_updown_vert.append(mehelpl2)
         spisokop_updown_gorizont.append(nehelpl2)
         opponent_spisok.append(mehelpl2)
         opponent_spisok.append(nehelpl2)
+        logging.info("Все успешно")
 
     spisokop_leftright_vert = []
     spisokop_leftright_gorizont = []
     while nehelpl3 <= 8:  # Ходы по горизонтале
         nehelpl3 = nehelpl3 + 1
+        logging.info("Все успешно")
         if nehelpl3 == 9:
             break
         spisokop_leftright_vert.append(mestock)
         spisokop_leftright_gorizont.append(nehelpl3)
         opponent_spisok.append(mestock)
         opponent_spisok.append(nehelpl3)
+        logging.info("Все успешно")
 
     while nehelpl4 >= 1:
         nehelpl4 = nehelpl4 - 1
+        logging.info("Все успешно")
         if nehelpl4 == 0:
             break
         spisokop_leftright_vert.append(mestock)
         spisokop_leftright_gorizont.append(nehelpl4)
         opponent_spisok.append(mestock)
         opponent_spisok.append(nehelpl4)
+        logging.info("Все успешно")
 
-      # Расчет, как срубить оппонента за два хода!
+    # Расчет, как срубить оппонента за два хода!
     # Проработка первого хода, для пересечения с соперником
     while mehelpl1 <= 8:  # Ходы по вертикале вверх
         mehelpl1 = mehelpl1 + 1
+        logging.info("Все успешно")
         if mehelpl1 == 9:
             break
         spisokop_updown_vert.append(mehelpl1)
         spisokop_updown_gorizont.append(nehelpl1)
         opponent_spisok.append(mehelpl1)
         opponent_spisok.append(nehelpl1)
+        logging.info("Все успешно")
 
     while mehelpl2 >= 1:
         mehelpl2 = mehelpl2 - 1
+        logging.info("Все успешно")
         if mehelpl2 == 0:
             break
         spisokop_updown_vert.append(mehelpl2)
         spisokop_updown_gorizont.append(nehelpl2)
         opponent_spisok.append(mehelpl2)
         opponent_spisok.append(nehelpl2)
+        logging.info("Все успешно")
 
     spisokop_leftright_vert = []
     spisokop_leftright_gorizont = []
     while nehelpl3 <= 8:  # Ходы по горизонтале
         nehelpl3 = nehelpl3 + 1
+        logging.info("Все успешно")
         if nehelpl3 == 9:
             break
         spisokop_leftright_vert.append(mestock)
         spisokop_leftright_gorizont.append(nehelpl3)
         opponent_spisok.append(mestock)
         opponent_spisok.append(nehelpl3)
+        logging.info("Все успешно")
 
     while nehelpl4 >= 1:
         nehelpl4 = nehelpl4 - 1
+        logging.info("Все успешно")
         if nehelpl4 == 0:
             break
         spisokop_leftright_vert.append(mestock)
         spisokop_leftright_gorizont.append(nehelpl4)
         opponent_spisok.append(mestock)
         opponent_spisok.append(nehelpl4)
+        logging.info("Все успешно")
 
     for i in spisokdanger_updown_vertical:  # Проверка, возможно ли срубить за один ход!
         if m == i:
+            logging.info("Все успешно")
             index = spisokdanger_updown_vertical.index(i)
             if spisokdanger_updown_gorizont[index] == n:
                 s3 += 1
+                logging.info("Все успешно")
 
     for i in spisokdanger_leftright_gorizont:  # Проверка, возможно ли срубить за один ход!
         if n == i:
+            logging.info("Все успешно")
             index = spisokdanger_leftright_gorizont.index(i)
             if spisokdanger_leftright_vertical[index] == m:
                 s4 += 1
+                logging.info("Все успешно")
 
     if (s1 != 0) or (s2 != 0) or (s3 != 0) or (s4 != 0):
         print('Противник под угрозой!\nЕго можно срубить за один ход.')
@@ -636,6 +744,7 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
         # print(spisokw_uprightd_vert)
         # print(spisokw_uprightd_goriz)
         # print(opponent_spisok)
+        logging.info("Все успешно")
         o1 = 0  # Вспомогательные счетчики
         dlinael = len(qeenspisok)
         maxel = dlinael - 1
@@ -650,6 +759,7 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
         if o1 != 1:  # Поиск пересекающихся диагоналей для победы вторым ходом
             for j in range(1, dlinaop, 2):
                 i = j - 1
+                logging.info("Все успешно")
                 elop = opponent_spisok[i]
                 elop2 = opponent_spisok[j]
                 for j1 in range(1, dlinael, 2):
@@ -657,38 +767,44 @@ def qeen(ke,le,me,ne): #Ферзь(королева) ходит как ладь�
                     elel = qeenspisok[i1]
                     elel2 = qeenspisok[j1]
                     if j1 == dlinael:
+                        logging.info("Все успешно")
                         i += 1
                         j += 1
                     # print(elop, elel, '\n', elop2, elel2)
                     if elop == elel and elop2 == elel2:
                         o1 = 1
+                        logging.info("Все успешно")
                         print(
                             'Для того чтобы срубить фигуру соперника вторым ходом, нужно первым ходом сходить по вертикали на',
                             elop, 'и по горизонатале на', elop2,
                             '\nТаким образом, вторым ходом вы окажетесь по вертикале на', m,
                             'и по горизонатале на', n, '\n')
 
-
         if o2 != 1:  # Поиск пересекающихся диагоналей для победы вторым ходом
             for j in range(1, dlinaopt, 2):
                 i = j - 1
+                logging.info("Все успешно")
                 elopt = opponent_spisok[i]
                 elopt2 = opponent_spisok[j]
                 for j1 in range(1, dlinatur, 2):
                     i1 = j1 - 1
+                    logging.info("Все успешно")
                     eltur = qeenspisok[i1]
                     eltur2 = qeenspisok[j1]
                     if j1 == dlinatur:
                         i += 1
                         j += 1
+                        logging.info("Все успешно")
                     # print(elop, eltur, '\n', elop2, eltur2)
                     if elopt == eltur and elopt2 == eltur2:
                         o2 = 1
+                        logging.info("Все успешно")
                         print(
                             'Для того чтобы срубить фигуру соперника вторым ходом, нужно первым ходом сходить по вертикали на',
                             elopt, 'и по горизонатале на', elopt2,
                             '\nТаким образом, вторым ходом вы окажетесь по вертикале на', m,
                             'и по горизонатале на', n, '\n')
+
 
 def horse(ke, le, me, ne):
     spisokdanger_left_vert = []
@@ -737,99 +853,119 @@ def horse(ke, le, me, ne):
     if ke <= 6 and le >= 3:  # Влево вверх
         ke = ke + 2
         le = le - 1
+        logging.info("Все успешно")
         spisokdanger_left_vert.append(ke)
         spisokdanger_left_goriz.append(le)
         horse_spisok.append(ke)
         horse_spisok.append(le)
 
+
     if kehelp <= 6 and lehelp >= 2:  # Влево вбок
         kehelp = kehelp + 1
         lehelp = lehelp - 2
+        logging.info("Все успешно")
         spisokdanger_left_vert.append(kehelp)
         spisokdanger_left_goriz.append(lehelp)
         horse_spisok.append(kehelp)
         horse_spisok.append(lehelp)
 
+
     if kehelp1 >= 3 and lehelp1 >= 2:  # Влево вниз
         kehelp1 = kehelp1 - 2
         lehelp1 = lehelp1 - 1
+        logging.info("Все успешно")
         spisokdanger_left_vert.append(kehelp1)
         spisokdanger_left_goriz.append(lehelp1)
         horse_spisok.append(kehelp1)
         horse_spisok.append(lehelp1)
 
+
     if kehelp2 >= 2 and lehelp2 >= 3:  # Влево вбок низ
         kehelp2 = kehelp2 - 1
         lehelp2 = lehelp2 - 2
+        logging.info("Все успешно")
         spisokdanger_left_vert.append(kehelp2)
         spisokdanger_left_goriz.append(lehelp2)
         horse_spisok.append(kehelp2)
         horse_spisok.append(lehelp2)
 
+
     if ker <= 6 and ler <= 7:  # Вправо вверх
         ker = ker + 2
         ler = ler + 1
+        logging.info("Все успешно")
         spisokdanger_right_vert.append(ker)
         spisokdanger_right_goriz.append(ler)
         horse_spisok.append(ker)
         horse_spisok.append(ler)
 
+
     if ker1 <= 7 and ler1 <= 6:  # Вправо вбок
         ker1 = ker1 + 1
         ler1 = ler1 + 2
+        logging.info("Все успешно")
         spisokdanger_right_vert.append(ker1)
         spisokdanger_right_goriz.append(ler1)
         horse_spisok.append(ker1)
         horse_spisok.append(ler1)
 
+
     if ker2 >= 3 and ler2 <= 7:  # Вправо вниз
         ker2 = ker2 - 2
         ler2 = ler2 + 1
+        logging.info("Все успешно")
         spisokdanger_right_vert.append(ker2)
         spisokdanger_right_goriz.append(ler2)
         horse_spisok.append(ker2)
         horse_spisok.append(ler2)
 
+
     if ker3 >= 2 and ler3 <= 6:  # Вправо вбок низ
         ker3 = ker3 - 1
         ler3 = ler3 + 2
+        logging.info("Все успешно")
         spisokdanger_right_vert.append(ker3)
         spisokdanger_right_goriz.append(ler3)
         horse_spisok.append(ker3)
         horse_spisok.append(ler3)
 
+
     s1 = 0
     s2 = 0
     s3 = 0
     s4 = 0
-    for i in spisokdanger_left_vert:
+    for i in spisokdanger_left_vert:    #Проверка рубки за первый ход
         if i == mestock:
             index = spisokdanger_left_vert.index(i)
             if spisokdanger_left_goriz[index] == nestock:
                 s1 += 1
+                logging.info("Все успешно")
 
     for i in spisokdanger_right_vert:
         if i == mestock:
             index = spisokdanger_right_vert.index(i)
             if spisokdanger_right_goriz[index] == nestock:
                 s2 += 1
+                logging.info("Все успешно")
 
     for i in spisokdanger_left_goriz:
         if i == nestock:
             index = spisokdanger_left_goriz.index(i)
             if spisokdanger_left_vert[index] == mestock:
                 s3 += 1
+                logging.info("Все успешно")
 
     for i in spisokdanger_right_goriz:
         if i == nestock:
             index = spisokdanger_right_goriz.index(i)
             if spisokdanger_right_vert[index] == mestock:
                 s4 += 1
+                logging.info("Все успешно")
 
     if (s1 != 0) or (s2 != 0) or (s3 != 0) or (s4 != 0):
         print('Противник под угрозой!\nЕго можно срубить за один ход.')
     else:
-        print('Противника не срубить за один ход!')
+        print('Противника не срубить за один ход!') #Расчет пересечний с оппонентом, чтобы срубить за два хода
         if me <= 6 and ne >= 3:  # Влево вверх
             me = me + 2
             ne = ne - 1
@@ -837,6 +973,7 @@ def horse(ke, le, me, ne):
             spisokop_left_goriz.append(ne)
             opponent_spisok.append(me)
             opponent_spisok.append(ne)
+            logging.info("Все успешно")
 
         if mehelp <= 6 and nehelp >= 2:  # Влево вбок
             mehelp = mehelp + 1
@@ -845,6 +982,7 @@ def horse(ke, le, me, ne):
             spisokop_left_goriz.append(nehelp)
             opponent_spisok.append(mehelp)
             opponent_spisok.append(nehelp)
+            logging.info("Все успешно")
 
         if mehelp1 >= 3 and nehelp1 >= 2:  # Влево вниз
             mehelp1 = mehelp1 - 2
@@ -853,6 +991,7 @@ def horse(ke, le, me, ne):
             spisokdanger_left_goriz.append(nehelp1)
             opponent_spisok.append(mehelp1)
             opponent_spisok.append(nehelp1)
+            logging.info("Все успешно")
 
         if mehelp2 >= 2 and nehelp2 >= 3:  # Влево вбок низ
             mehelp2 = mehelp2 - 1
@@ -861,6 +1000,7 @@ def horse(ke, le, me, ne):
             spisokop_left_goriz.append(nehelp2)
             opponent_spisok.append(mehelp2)
             opponent_spisok.append(nehelp2)
+            logging.info("Все успешно")
 
         if mer <= 6 and ner <= 7:  # Вправо вверх
             mer = mer + 2
@@ -869,6 +1009,7 @@ def horse(ke, le, me, ne):
             spisokop_right_goriz.append(ner)
             opponent_spisok.append(mer)
             opponent_spisok.append(ner)
+            logging.info("Все успешно")
 
         if mer1 <= 7 and ner1 <= 6:  # Вправо вбок
             mer1 = mer1 + 1
@@ -877,6 +1018,7 @@ def horse(ke, le, me, ne):
             spisokop_right_goriz.append(ner1)
             opponent_spisok.append(mer1)
             opponent_spisok.append(ner1)
+            logging.info("Все успешно")
 
         if mer2 >= 3 and ner2 <= 7:  # Вправо вниз
             mer2 = mer2 - 2
@@ -885,6 +1027,7 @@ def horse(ke, le, me, ne):
             spisokop_right_goriz.append(ner2)
             opponent_spisok.append(mer2)
             opponent_spisok.append(ner2)
+            logging.info("Все успешно")
 
         if mer3 >= 2 and ner3 <= 6:  # Вправо вбок низ
             mer3 = mer3 - 1
@@ -893,18 +1036,22 @@ def horse(ke, le, me, ne):
             spisokop_right_goriz.append(ner3)
             opponent_spisok.append(mer3)
             opponent_spisok.append(ner3)
+            logging.info("Все успешно")
 
         s1 = 0
         s2 = 0
         s3 = 0
         s4 = 0
 
-        for i in spisokop_right_vert:
+
+
+        for i in spisokop_right_vert:           #Проверка рубки за 2 хода
             if i in spisokdanger_left_vert:
                 indexop = spisokop_right_vert.index(i)
                 myindex = spisokdanger_left_vert.index(i)
                 if spisokop_right_goriz[indexop] == spisokdanger_left_goriz[myindex]:
                     s1 += 1
+                    logging.info("Все успешно")
 
         for i in spisokop_left_vert:
             if i in spisokdanger_right_vert:
@@ -912,6 +1059,7 @@ def horse(ke, le, me, ne):
                 myindex = spisokdanger_right_vert.index(i)
                 if spisokop_left_goriz[indexop] == spisokdanger_right_goriz[myindex]:
                     s2 += 1
+                    logging.info("Все успешно")
 
         for i in spisokop_right_goriz:
             if i in spisokdanger_left_goriz:
@@ -919,6 +1067,7 @@ def horse(ke, le, me, ne):
                 myindex = spisokdanger_left_goriz.index(i)
                 if spisokop_right_vert[indexop] == spisokdanger_left_vert[myindex]:
                     s3 += 1
+                    logging.info("Все успешно")
 
         for i in spisokop_left_goriz:
             if i in spisokdanger_right_goriz:
@@ -926,6 +1075,7 @@ def horse(ke, le, me, ne):
                 myindex = spisokdanger_right_goriz.index(i)
                 if spisokop_left_vert[indexop] == spisokdanger_right_vert[myindex]:
                     s4 += 1
+                    logging.info("Information")
         if (s1 != 0) or (s2 != 0) or (s3 != 0) or (s4 != 0):
             print('Получиться срубить оппонента за два хода!\n')
             print('Вам будут предложены всевозможные ходы!')
@@ -937,35 +1087,44 @@ def horse(ke, le, me, ne):
             if o1 != 1:  # Поиск пересекающихся диагоналей для победы вторым ходом
                 for j in range(1, dlinaop, 2):
                     i = j - 1
+                    logging.info("Все успешно")
                     elop = opponent_spisok[i]
                     elop2 = opponent_spisok[j]
                     for j1 in range(1, dlinael, 2):
                         i1 = j1 - 1
+                        logging.info("Все успешно")
                         elel = horse_spisok[i1]
                         elel2 = horse_spisok[j1]
                         if j1 == dlinael:
                             i += 1
                             j += 1
+                            logging.info("Все успешно")
                         # print(elop, elel, '\n', elop2, elel2)
                         if elop == elel and elop2 == elel2:
                             o1 = 1
+                            logging.info("Все успешно")
                             print(
                                 'Для того чтобы срубить фигуру соперника вторым ходом, нужно первым ходом сходить по вертикали на',
                                 elop, 'и по горизонатале на', elop2,
                                 '\nТаким образом, вторым ходом вы окажетесь по вертикале на', mestock,
-                                'и по горизонатале на', nestock,'\n')
+                                'и по горизонатале на', nestock, '\n')
         else:
             print('За два хода не срубить!')
+
 
 while k1 != 1:  # Проверка, чтобы ввели число | Диалоговый режим с пользователем и обработкой ошибок ввода
     try:
         k = int(input("Введите текущую координату фигуры(вертикаль): "))  # y1 = первая фигура верт
         while k > 8:  # Проверка, чтобы ввели число не больше 8.
             # | Диалоговый режим с пользователем и обработкой ошибок ввода
+            logging.critical('Проблема')
             print('\nКоордината должна не превышать 8')
+
             k = int(input("Введите текущую координату фигуры повторно(вертикаль): "))
     except ValueError:
+        logging.error('Ошибка')
         print('Вы ввели не число!\nПробуйте снова\n')
+
     else:
         k1 += 1
 
@@ -975,8 +1134,10 @@ while l1 != 1:  # Проверка, чтобы ввели число | Диал�
         while l > 8:  # Проверка, чтобы ввели число не больше 8.
             # | Диалоговый режим с пользователем и обработкой ошибок ввода
             print('\nКоордината должна не превышать 8')
+            logging.critical('Проблема')
             l = int(input("Введите текущую координату фигуры повторно(горизонталь): "))
     except ValueError:
+        logging.error('Ошибка')
         print('Вы ввели не число!\nПробуйте снова\n')
     else:
         l1 += 1
@@ -988,7 +1149,9 @@ while m1 != 1:  # Проверка, чтобы ввели число | Диал�
             # | Диалоговый режим с пользователем и обработкой ошибок ввода
             print('\nКоордината должна не превышать 8')
             m = int(input("Введите координату для хода повторно(вертикаль): "))
+            logging.critical('Проблема')
     except ValueError:
+        logging.error('Ошибка')
         print('Вы ввели не число!\nПробуйте снова\n')
     else:
         m1 += 1
@@ -1000,7 +1163,9 @@ while n1 != 1:  # Проверка, чтобы ввели число | Диал�
             # | Диалоговый режим с пользователем и обработкой ошибок ввода
             print('\nКоордината должна не превышать 8')
             n = int(input("Введите координату для хода повторно(горизонталь): "))
+            logging.critical('Проблема')
     except ValueError:
+        logging.error('Ошибка')
         print('Вы ввели не число!\nПробуйте снова\n')
     else:
         n1 += 1
@@ -1021,11 +1186,13 @@ while f1 != 1:  # Проверка, чтобы ввели число от 1-4 | 
         while figura > 4 or figura < 1:
             print('Вы выбрали неверное число!')
             print('Выберите, какая фигура будет стоять на k =', k, '| l =', l)
+            logging.critical('Проблема')
             figura = int(
                 input(
                     '\nФерзь - 1\nЛадья - 2\nСлон -  3\nКонь -  4\nВведите число!\n'))  # Ввод выбранной фигурына k,l
     except ValueError:
         print('Вы ввели не число!\nПробуйте снова\n')
+        logging.error('Ошибка')
     else:
         f1 += 1
 
@@ -1047,6 +1214,7 @@ if figura == 1:
     me = m
     ne = n
     qeen(ke, le, me, ne)
+    logging.info("Все успешно")
 elif figura == 2:
     print('Вы выбрали ладью!\n')
     ke = k
@@ -1054,6 +1222,7 @@ elif figura == 2:
     me = m
     ne = n
     turris(ke, le, me, ne)
+    logging.info("Все успешно")
 elif figura == 3:
     print('Вы выбрали слона!\n')
     ke = k
@@ -1061,6 +1230,7 @@ elif figura == 3:
     me = m
     ne = n
     elephant(ke, le, me, ne)
+    logging.info("Все успешно")
 elif figura == 4:
     print('Вы выбрали коня!\n')
     ke = k
@@ -1068,3 +1238,4 @@ elif figura == 4:
     me = m
     ne = n
     horse(ke, le, me, ne)
+    logging.info("Все успешно")
